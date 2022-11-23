@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<link rel="stylesheet" type="text/css" href="maincss.css" /> 
+  <title>Part 3.1</title>
+  </head>
+  <body>
+  <h1>Part 3.1</h1>
+  <p>3.1 Inevitably staff will be a little bit concerned by my influence if they don't meet their set goals.</p>
+	<div id="radiobuttons"> 
+   <p><input type="radio" name="radio_choice" value="0" id="0" onclick="transactional_0()">
+    <label for="0">0 N/A &nbsp;&nbsp;</label></p>
+    
+   <p><input type="radio" name="radio_choice" value="1" id="1" onclick="transactional_1()">
+    <label for="1">1 (Strongly Disagree)  &nbsp;&nbsp;</label></p>
+      
+   <p><input type="radio" name="radio_choice" value="2" id="2" onclick="transactional_2()">
+    <label for="2"> 2 (Disagree)  &nbsp;&nbsp;</label></p>
+      
+   <p><input type="radio" name="radio_choice" value="3" id="3" onclick="transactional_3()">
+    <label for="3"> 3 (Neutral)  &nbsp;&nbsp;</label></p>
+      
+   <p><input type="radio" name="radio_choice" value="4" id="4" onclick="transactional_4()">
+    <label for="4"> 4 (Agree)  &nbsp;&nbsp;</label></p>
+      
+   <p><input type="radio" name="radio_choice" value="5" id="5" onclick="transactional_5()">
+    <label for="5"> 5 (Strongly Agree)  &nbsp;&nbsp;</label> </p>
+    
+	<button type="radio" onclick="transactional_submit()">submit</button> 
+    <p id="demo"></p></div>
+ <script>
+	const params = new URLSearchParams(window.location.search);
+	// read parameters from the URL
+    let transactional_total = parseInt(params.get("act"));	  
+	let transformational_total = parseInt(params.get("form"));
+	let contingency_total = parseInt(params.get("contingency"));
+	let pedagogical_total = parseInt(params.get("pedagogical"));
+	let trait_total = parseInt(params.get("trait"));
+	 
+	let transactional_choice = 0;
+		
+      function transactional_0() {
+        transactional_choice = 0;
+	  }
+      
+      function transactional_1() {
+        transactional_choice = 1;
+	  }
+		
+	   function transactional_2() {
+        transactional_choice = 2;
+      }
+	
+		function transactional_3() {
+    	 transactional_choice = 3;
+    	}
+		
+		function transactional_4() {
+    	 transactional_choice = 4;
+    	}
+
+		function transactional_5() {
+    	 transactional_choice = 5;
+    	}
+	  
+	  function transactional_submit(){
+		  transactional_total = transactional_total + transactional_choice;
+		  ////window.alert(transactional_total)
+		  let url = "part3.2.html?act=" + transactional_total + "&form=" + transformational_total + "&contingency=" + contingency_total + "&pedagogical=" + pedagogical_total + "&trait=" + trait_total;
+		  ////window.alert(url)
+		  window.open(url, "_self");
+	  }
+			
+    </script>
+  </body>
+</html>

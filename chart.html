@@ -1,0 +1,163 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Leadership Theories</title>
+
+		<style type="text/css">
+.highcharts-figure, .highcharts-data-table table {
+    min-width: 320px;
+    max-width: 700px;
+    margin: 1em auto;
+}
+
+.highcharts-data-table table {
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+}
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+.highcharts-data-table th {
+	font-weight: 600;
+    padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+    padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+		</style>
+		<script type="application/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+		<script type="application/javascript" src="https://code.highcharts.com/highcharts-more.js"></script>
+		<script type="application/javascript" src="https://code.highcharts.com/modules/exporting.js"></script>
+		<script type="application/javascript" src="https://code.highcharts.com/modules/export-data.js"></script>
+		<script type="application/javascript" src="https://code.highcharts.com/modules/accessibility.js"></script>
+	</head>
+	<body>
+<!--<script src="code/highcharts.js"></script>
+<script src="code/highcharts-more.js"></script>
+<script src="code/modules/exporting.js"></script>
+<script src="code/modules/export-data.js"></script>
+<script src="code/modules/accessibility.js"></script> -->
+		
+
+
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">Refer to the spider&rsquo;s web, which has been generated based on your responses, to get a &lsquo;picture&rsquo; of your leadership style. The higher the score, the more closely you align to that type of leadership. You may score high or low on multiple types of leadership.</p>
+</figure>
+
+
+<script type="text/javascript">
+const params = new URLSearchParams(window.location.search);
+    
+//let transact = 20;
+//let transform = 20;
+//let contingency = 20;
+//let pedagogical = 20;
+//let trait = 20;
+
+// read parameters from the URL
+let transact = parseInt(params.get("act"));
+let transform = parseInt(params.get("form"));
+let contingency = parseInt(params.get("contingency"));
+let pedagogical = parseInt(params.get("pedagogical"));
+let trait = parseInt(params.get("trait"));
+
+console.log(transact); 
+console.log(transform); 
+console.log(contingency);
+console.log(pedagogical); 
+console.log(trait); 
+    
+    
+    
+Highcharts.chart('container', {
+    
+    
+
+    chart: {
+        polar: true,
+        type: 'line'
+    },
+
+    accessibility: {
+        description: ' Each of these five leadership theories has been critiqued and challenged through the research literature so there is no ‘one size fits all’ best practice model. The below is to guide you on your own development of your leadership philosophy and consider ways you might incorporate a broader range of approaches. You may have multiple types of leadership score high, or low. This way you can consider how you will apply multiple types of leadership theory to practice. '
+    },
+
+    title: {
+        text: 'Leadership Theories',
+        x: -80
+    },
+
+    pane: {
+        size: '80%'
+    },
+
+    xAxis: {
+        categories: ['Transactional leadership theory', 'Transformation leadership theory', 'Contingency leadership theory', 'Pedagogical leadership theory',
+            'Trait leadership theory'],
+        tickmarkPlacement: 'off',
+        lineWidth: 0
+    },
+
+    yAxis: {
+        gridLineInterpolation: 'polygon',
+        lineWidth: 0,
+        min: 0
+    },
+
+tooltip: {
+        enabled: false
+    },
+
+    legend: {
+        align: 'right',
+        verticalAlign: 'middle',
+        layout: 'vertical'
+    },
+
+    series: [{
+        name: 'Leadership Theories',
+        // data: [2, 15, 10, 25, 5],
+        data: [transact, transform, contingency, pedagogical, trait],
+        pointPlacement: 'false'
+    }],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    align: 'center',
+                    verticalAlign: 'bottom',
+                    layout: 'horizontal'
+                },
+                pane: {
+                    size: '70%'
+                }
+            }
+        }]
+    }
+
+});
+		</script>
+	</body>
+</html>
